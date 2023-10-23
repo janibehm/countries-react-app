@@ -1,0 +1,31 @@
+.background {
+  background-image: url('/public/images/globebanner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+}
+
+.background h1 {
+  font-size: 2.5rem;
+  width: 30%;
+}
+
+.background p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  width: 30%;
+}
+
+.background a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  width: 30%;
+}
+
+.background a:hover {
+  text-decoration: none;
+  width: 30%;
+}

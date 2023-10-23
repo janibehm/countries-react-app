@@ -1,0 +1,5 @@
+.favourites-container {
+  background: linear-gradient(to right, #ff5733, #27c79a);
+  background-size: 200% 100%;
+  height: 100vh;
+}
