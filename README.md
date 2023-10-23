@@ -3,6 +3,8 @@
 A simple React application made in Business College Helsinki lessons.
 You can see basic information about all countries, search and favourite them.
 
+# Visit site: https://countries-react-app-three.vercel.app
+
 ## Technologies used
 
 Built with: 
@@ -16,7 +18,7 @@ Built with:
 
 ## Screenshot
 
-<img width="1439" alt="countriesApp" src="https://github.com/janibehm/countries-react-app/assets/71294621/253e3f9e-0f79-4b31-8213-035aeef6fad8">
+<img width="1440" alt="globe" src="https://github.com/janibehm/countries-react-app/assets/71294621/fac4cb5c-7e4b-47de-843f-c2543a0ddc64">
 
 ## Authors and acknowledgment
 
