@@ -35,7 +35,7 @@ const CountriesSingle = () => {
 
               {weatherData && (
                 <div>
-                  <h2>Weather Information</h2>
+                  <h2>Weather</h2>
                   <p>
                     Temperature: {Math.floor(weatherData.main.temp - 273.15)} °C
                   </p>

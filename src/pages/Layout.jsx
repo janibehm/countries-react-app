@@ -18,7 +18,7 @@ const Layout = () => {
       {' '}
       {/* Apply the background styles */}
       <Row>
-        <Navbar bg='light' variant='light'>
+        <Navbar bg='warning' variant='light'>
           <Container className='justify-content-end'>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
