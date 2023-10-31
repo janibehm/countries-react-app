@@ -1,60 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeCountries } from '../features/countries/countriesSlice';
-import CountryCard from './CountryCard';
+import { useLocation } from 'react-router-dom';
+import style from './countriesSingle.module.css';
+import { Card, Col, ListGroup } from 'react-bootstrap';
+import { initializeWeather } from '../features/weather/weatherSlice.js';
+import weatherAPI from '../services/weather.js';
+import WeatherIcon from './WeatherIcon';
 
-const Countries = () => {
+const CountriesSingle = () => {
+  const location = useLocation();
+  const country = location.state.country;
   const dispatch = useDispatch();
-  const countriesList = useSelector((state) => state.countries.countries);
-  const loading = useSelector((state) => state.countries.isLoading);
-
-  console.log('CountriesList = ', countriesList);
-
-  const [search, setSearch] = useState('');
-
-  console.log('Search: ', search);
-
+  const [weatherData, setWeatherData] = useState(null);
   useEffect(() => {
-    dispatch(initializeCountries());
-  }, [dispatch]);
+    const fetchWeatherData = async () => {
+      const weatherData = await weatherAPI.getCurrent(country);
+      dispatch(initializeWeather(weatherData));
+      setWeatherData(weatherData);
+    };
+
+    fetchWeatherData();
+  }, [dispatch, country]);
 
   return (
-    <Container fluid>
-      <Row>
-        <Col className='mt-5 d-flex justify-content-center'>
-          <Form>
-            <Form.Control
-              style={{ width: '18rem' }}
-              type='search'
-              className='me-2 '
-              placeholder='Search for countries'
-              aria-label='Search'
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </Form>
-        </Col>
-      </Row>
-      <Row xs={2} md={3} lg={4} className=' g-3'>
-        {/* {countriesList.reduce((acc, country) => {
-            if (country.name.official.toLowerCase().includes(search.toLowerCase())) {
-             acc.push(<CountryCard key={country.name} country={country} />);
-          }
-          return acc;
-          }, [])} */}
-        {countriesList
-          .filter((c) => {
-            return c.name.official.toLowerCase().includes(search.toLowerCase());
-          })
-          .map((country) => (
-            <CountryCard key={country.name.common} country={country} />
-          ))}
-      </Row>
-    </Container>
+    <div className={style.background}>
+      <Col className='mt-5'>
+        <Card className='h-100'>
+          <div>
+            <Card.Body className='d-flex flex-column'>
+              <Card.Title>{country.name.common}</Card.Title>
+              <Card.Subtitle className='mb-5 text-muted'>
+                {country.capital}
+              </Card.Subtitle>
+
+              {weatherData && (
+                <div>
+                  <h2>Weather Information</h2>
+                  <p>
+                    Temperature: {Math.floor(weatherData.main.temp - 273.15)} °C
+                  </p>
+                  <p>{weatherData.weather[0].main}</p>
+                  <WeatherIcon iconName={weatherData.weather[0].icon} />
+                </div>
+              )}
+            </Card.Body>
+          </div>
+        </Card>
+      </Col>
+    </div>
   );
 };
 
-export default Countries;
+export default CountriesSingle;

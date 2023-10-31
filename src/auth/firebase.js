@@ -30,7 +30,6 @@ const loginWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    console.log(err);
     alert(err.message);
   }
 };
@@ -46,7 +45,6 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       email,
     });
   } catch (err) {
-    console.log(err);
     alert(err.message);
   }
 };

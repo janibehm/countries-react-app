@@ -4,8 +4,8 @@ import Countries from './components/Countries';
 import CountriesSingle from './components/CountriesSingle';
 import Home from './components/Home';
 import Layout from './pages/Layout';
-
-import 'bootstrap-icons/font/bootstrap-icons.css';
+/* import CountryDetail from './components/CountryDetail';
+ */ import 'bootstrap-icons/font/bootstrap-icons.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import ProtectedRoute from './auth/ProtectedRoute';
 import { auth } from './auth/firebase';
@@ -27,6 +27,8 @@ const App = () => {
             <Route path='/favourites' element={<Favourites />} />
             <Route path='/countries' element={<Countries />} />
             <Route path='/countries/:single' element={<CountriesSingle />} />
+            {/*             <Route path='/country/:countryName' element={<CountryDetail />} />
+             */}{' '}
           </Route>
         </Route>
       </Routes>

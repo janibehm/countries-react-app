@@ -14,7 +14,6 @@ export const favouritesSlice = createSlice({
   },
   reducers: {
     addFavourite(state, action) {
-      // The line below is not necessary but can be useful as a check to see if localStorage favourite already exists
       if (state.favourites.some((fav) => fav === action.payload))
         state.favourites = [...state.favourites];
       state.favourites = [...state.favourites, action.payload];

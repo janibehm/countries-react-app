@@ -1,6 +1,7 @@
 import { Card, Col, ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
+
 import {
   addFavourite,
   removeFavourite,
@@ -13,6 +14,9 @@ const CountryCard = ({ country }) => {
   return (
     <Col className='mt-5'>
       <Card className='h-100'>
+        <div>
+          <h3>{country.name.common}</h3>
+        </div>
         {favouritesList?.includes(country.name.common) ? (
           <i
             className='bi bi-heart-fill text-danger m-1 p-1'

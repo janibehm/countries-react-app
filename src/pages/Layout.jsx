@@ -8,7 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Outlet } from 'react-router-dom';
 import { auth, logout } from '../auth/firebase';
-import styles from './layout.module.css'; // Import the CSS Module
+import styles from './layout.module.css';
 
 const Layout = () => {
   const [user, loading] = useAuthState(auth);
