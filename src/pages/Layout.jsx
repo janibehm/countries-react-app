@@ -15,8 +15,6 @@ const Layout = () => {
 
   return (
     <Container fluid className={styles['layout-container']}>
-      {' '}
-      {/* Apply the background styles */}
       <Row>
         <Navbar bg='warning' variant='light'>
           <Container className='justify-content-end'>
