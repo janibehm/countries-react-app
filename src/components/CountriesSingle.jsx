@@ -11,15 +11,13 @@ const CountriesSingle = () => {
   const location = useLocation();
   const country = location.state.country;
   const dispatch = useDispatch();
-  const [weatherData, setWeatherData] = useState(null);
-  useEffect(() => {
-    const fetchWeatherData = async () => {
-      const weatherData = await weatherAPI.getCurrent(country);
-      dispatch(initializeWeather(weatherData));
-      setWeatherData(weatherData);
-    };
+  const weatherData = useSelector((state) => state.weather.weatherData);
+  const isLoading = useSelector((state) => state.weather.isLoading);
 
-    fetchWeatherData();
+  useEffect(() => {
+    if (country && country.capital) {
+      dispatch(initializeWeather(country));
+    }
   }, [dispatch, country]);
 
   return (
@@ -28,9 +26,9 @@ const CountriesSingle = () => {
         <Card className='h-100'>
           <div>
             <Card.Body className='d-flex flex-column'>
-              <Card.Title>{country.name.common}</Card.Title>
+              <Card.Title>{country?.name?.common || 'N/A'}</Card.Title>
               <Card.Subtitle className='mb-5 text-muted'>
-                {country.capital}
+                {country?.capital || 'N/A'}
               </Card.Subtitle>
 
               {weatherData && (

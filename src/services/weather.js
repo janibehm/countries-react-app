@@ -4,18 +4,23 @@ const apiKey = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 
 const weatherAPI = {
   getCurrent: async (country) => {
-    const countryCopy = { ...country };
-    const coutryCapital = countryCopy.capital;
-    if (!country || !country.name || !country.capital) {
-      throw new Error('Invalid country object or missing common name');
+    const capital = country.capital;
+
+    if (!capital) {
+      throw new Error('Invalid country object');
     }
 
-    const baseUrl = {
-      current: `https://api.openweathermap.org/data/2.5/weather?q=${coutryCapital}&appid=${apiKey}`,
-    };
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      capital
+    )}&appid=${apiKey}`;
 
-    const response = await axios.get(baseUrl.current);
-    return response.data;
+    try {
+      const currentResponse = await axios.get(currentWeatherUrl);
+      return currentResponse.data;
+    } catch (error) {
+      console.error('Error fetching current weather data:', error);
+      throw error;
+    }
   },
 };
 
