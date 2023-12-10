@@ -2,6 +2,9 @@
 
 A simple React application made in Business College Helsinki lessons.
 You can see basic information about all countries, search and favourite them.
+You can also see the local weather of the country by clicking the card.
+
+Whatch the demo video: https://www.youtube.com/watch?v=8ZOC270Awow
 
 # Visit site: https://countries-react-app-three.vercel.app
 
@@ -14,7 +17,8 @@ Built with:
 - CSS
 - Bootstrap
 - Reactjs 
-- ...
+- Redux
+- Firebase
 
 ## Screenshot
 
