@@ -20,6 +20,12 @@ Built with:
 - Redux
 - Firebase
 
+## API services I used in this app
+  Getting weather data:
+  https://openweathermap.org
+  Getting country data:
+  https://restcountries.com
+
 ## Screenshot
 
 <img width="1440" alt="globe" src="https://github.com/janibehm/countries-react-app/assets/71294621/fac4cb5c-7e4b-47de-843f-c2543a0ddc64">
@@ -28,7 +34,5 @@ Built with:
 
 Jani Behm
 - GitHub @janibehm
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# countries-react-app
 # countries-react-app
